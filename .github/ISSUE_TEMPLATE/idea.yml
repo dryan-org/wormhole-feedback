@@ -1,0 +1,21 @@
+name: Idea or feature request
+description: Something Wormhole could do better or should do.
+labels: ["idea"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The situation or workflow where Wormhole falls short.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would help?
+      description: How you imagine it working. Rough is fine.
+  - type: input
+    id: wormhole-version
+    attributes:
+      label: Wormhole version (if you use it)
+      placeholder: 1.0.0

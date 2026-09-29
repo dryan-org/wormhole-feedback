@@ -1,0 +1,89 @@
+name: Bug report
+description: Something in Wormhole isn't working.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. This repository is public, so please replace device names, IP addresses, VPN machine names and pairing details (such as `authTag`) with placeholders.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Take the iPhone to another Wi-Fi network
+        2. Open Xcode and run on the device
+        3. ...
+  - type: input
+    id: wormhole-version
+    attributes:
+      label: Wormhole version
+      description: Shown by `wormhole status`. Filled in for you when you use Report an issue in the menu.
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: "26.6"
+    validations:
+      required: true
+  - type: input
+    id: xcode-version
+    attributes:
+      label: Xcode version
+      placeholder: "27.0"
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS version
+      placeholder: iPhone 17 Pro, iOS 26.2
+  - type: dropdown
+    id: route
+    attributes:
+      label: How does Wormhole reach the device?
+      options:
+        - Tailscale
+        - NetBird
+        - IP address (another VPN or network)
+    validations:
+      required: true
+  - type: dropdown
+    id: device-network
+    attributes:
+      label: Where was the device?
+      options:
+        - On another Wi-Fi network
+        - On the same network as the Mac
+        - On cellular
+        - Connected by USB
+        - Not sure
+  - type: input
+    id: menu-state
+    attributes:
+      label: What did the Wormhole menu show for the device?
+      description: The status symbol and the line under the device name, for example "Ready, Tailscale" or "Port 49152 is in use".
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (optional)
+      description: |
+        From Terminal, for the last hour:
+        `log show --last 1h --info --predicate 'subsystem == "tech.dryan.wormhole"'`
+        Review it and replace device names, addresses and pairing details before pasting.
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: I replaced device names, IP addresses, VPN machine names and pairing details with placeholders.
+          required: true
